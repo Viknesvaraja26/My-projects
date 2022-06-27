@@ -1,0 +1,116 @@
+Table Student
+	CREATE TABLE STUDENT (
+	stud_id integer NOT NULL UNIQUE,
+	stud_name varchar(50) NOT NULL,
+
+	PRIMARY KEY (stud_id));
+
+	INSERT INTO STUDENT (stud_id, stud_name)
+	VALUES (412011, 'LI YI');
+
+	INSERT INTO STUDENT (stud_id, stud_name)
+	VALUES (419201, 'SITI NUR');
+
+	INSERT INTO STUDENT (stud_id, stud_name)
+	VALUES (419154, 'ESSWARAN');
+
+	INSERT INTO STUDENT (stud_id, stud_name)
+	VALUES (419169, 'MUHAMMAD KHALID');
+	
+	INSERT INTO STUDENT (stud_id, stud_name)
+	VALUES (419172, 'Kumar');
+
+	Table Course 
+	CREATE TABLE COURSE (
+	course_id varchar(8) NOT NULL UNIQUE,
+	course_name varchar(40) NOT NULL,
+	credit_hour INTEGER NOT NULL,
+	employee_id INTEGER NOT NULL,
+
+	PRIMARY KEY (course_id),
+	FOREIGN KEY(employee_id)REFERENCES PROFESSOR);
+
+	INSERT INTO COURSE (course_id,course_name,credit_hour,employee_id)
+	VALUES ('IAS1223','DATA STRUCTURES AND ALGORITHMS',3, 30529);
+
+	INSERT INTO COURSE (course_id, course_name,credit_hour, employee_id)
+	VALUES ('MPU3222','SOCIAL WORK SKILLS',2, 39582);
+
+	INSERT INTO COURSE (course_id,course_name,credit_hour, employee_id)
+	VALUES ('IAS2143','DATABASE SYSTEM',3, 43592);
+
+	INSERT INTO COURSE (course_id,course_name,credit_hour, employee_id)
+	VALUES ('IAS2253','COMPUTER AND NETWORK SECURITY',3, 94857);
+
+	INSERT INTO COURSE (course_id,course_name,credit_hour, employee_id)
+	VALUES ('IAS2223','HUMAN COMPUTER INTERACTION',3, 97357);
+
+Table Professor
+CREATE TABLE PROFESSOR(
+	employee_id integer NOT NULL UNIQUE,
+	professor_name varchar(30) NOT NULL,
+
+	PRIMARY KEY (employee_id));
+
+	INSERT INTO Professor (employee_id, professor_name)
+	VALUES (43592, 'Chong');
+
+	INSERT INTO Professor (employee_id, professor_name)
+	VALUES (97357, 'Muhamad Ali');
+
+	INSERT INTO Professor (employee_id, professor_name)
+	VALUES (39582, 'JD');
+
+	INSERT INTO Professor (employee_id, professor_name)
+	VALUES (94857, 'Subaru');
+
+	INSERT INTO Professor (employee_id, professor_name)
+	VALUES (30529, 'Naofumi');
+	
+Table Enrollment
+CREATE TABLE ENROLLMENT (
+stud_id integer NOT NULL,
+course_id varchar(8) NOT NULL,
+enrolled_date varchar(11) NOT NULL,
+
+PRIMARY KEY (stud_id,course_id),
+
+FOREIGN KEY(stud_id)REFERENCES STUDENT,
+FOREIGN KEY(course_id)REFERENCES COURSE);
+
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(412011, 'IAS1223', '20-11-2019');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(412011, 'IAS2253', '21-11-2019');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(412011, 'IAS2143', '21-11-2019');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419154, 'IAS2253', '15-04-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419154, 'IAS2143', '16-04-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419169, 'IAS2143', '16-09-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419169, 'MPU3222', '16-09-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419172, 'IAS2223', '22-01-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419172, 'IAS2253', '23-01-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419201, 'IAS2223', '20-11-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419201, 'MPU3222', '21-11-2020');
+
+INSERT INTO ENROLLMENT (stud_id,course_id,enrolled_date)
+VALUES(419201, 'IAS2253', '20-11-2020');
